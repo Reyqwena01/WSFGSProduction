@@ -6,6 +6,25 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "GameManager.generated.h"
 
+UENUM(BlueprintType)
+enum class EActions : uint8
+{
+	Statue,
+	Marteau,
+	Ciseau,
+	None
+};
+
+UENUM(BlueprintType)
+enum class EMaterial : uint8
+{
+	Staue,
+	Bois,
+	Metal,
+	Marteau,
+	None
+};
+
 /**
  * 
  */
@@ -15,7 +34,12 @@ class WSFGSPRODUCTION_API UGameManager : public UGameInstanceSubsystem
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Holalala_la_categorie")
-	float tutudugamemanager = 1.0f;
-	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Enumerator")
+	EActions _actions = EActions::None;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Enumerator")
+	EMaterial _material = EMaterial::None;
 };
+
+
+
+
