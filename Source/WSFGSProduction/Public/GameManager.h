@@ -38,6 +38,8 @@ public:
 	EActions _actions = EActions::None;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Enumerator")
 	EMaterial _material = EMaterial::None;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Difficulty")
+	int _difficultyLevel = 0;
 };
 
 

@@ -3,3 +3,13 @@
 
 #include "GameManager.h"
 
+
+class GameManager
+{
+public :
+	void SetDifficulty(float difficulty)
+	{
+		
+	}
+};
+
