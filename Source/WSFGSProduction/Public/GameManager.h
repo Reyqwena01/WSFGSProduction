@@ -4,15 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "Blueprint/UserWidget.h"
 #include "GameManager.generated.h"
 
 UENUM(BlueprintType)
 enum class EActions : uint8
 {
-	Statue,
+	Ponceuese,
 	Marteau,
 	Ciseau,
-	None
+	NoneAction
 };
 
 UENUM(BlueprintType)
@@ -21,8 +22,7 @@ enum class EMaterial : uint8
 	Staue,
 	Bois,
 	Metal,
-	Marteau,
-	None
+	NoneAction
 };
 
 /**
@@ -35,11 +35,21 @@ class WSFGSPRODUCTION_API UGameManager : public UGameInstanceSubsystem
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Enumerator")
-	EActions _actions = EActions::None;
+	EActions _actions = EActions::NoneAction;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Enumerator")
-	EMaterial _material = EMaterial::None;
+	EMaterial _material = EMaterial::NoneAction;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Difficulty")
 	int _difficultyLevel = 0;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Object")
+	TArray<UUserWidget*> _questRequest;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Object")
+	TArray<UUserWidget*> _currentQuestRequest;
+
+	UFUNCTION(BlueprintCallable, Category = "Methode")
+	void SetDifficulty(int difficulty);
+	UFUNCTION(BlueprintCallable, Category = "Methode")
+	void CompareCurrentObject(UUserWidget* Card);
+
 };
 
 

@@ -1,15 +1,17 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "GameManager.h"
+// L'inclusion de "InputAction.h" n'est pas nécessaire ici si tu ne l'utilises pas encore.
 
-
-class GameManager
+void UGameManager::SetDifficulty(int difficulty)
 {
-public :
-	void SetDifficulty(float difficulty)
-	{
-		
-	}
-};
+    _difficultyLevel = difficulty; // On assigne la valeur à la variable du .h
+}
+
+void UGameManager::CompareCurrentObject(UUserWidget* Card)
+{
+    if (Card != nullptr)
+    {
+        // Exemple : On ajoute la carte à la liste actuelle
+        _currentQuestRequest.Add(Card);
+    }
+}
 
